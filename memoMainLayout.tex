@@ -1,0 +1,110 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{tikz, pgfplots}
+\usetikzlibrary{arrows,
+    calc,
+    decorations,
+    scopes,
+}
+
+\begin{document}
+
+\section*{THE STATIC COEFFICIENT OF FRICTION}
+\subsection*{DEFINITINONS}
+\begin{quote}
+The normal force $F_N$
+The perpendicular force exerted by a surface on an object in contact with it.
+\begin{equation}
+F_N = F_{g\perp} = F_g cos \theta  
+\end{equation}
+Frictional Froce $F f$ \\
+The force that opposes the motion of an object and acts parallel to the surface with which the object is in contact.
+\begin{equation}
+F_{f(max)} = F_{g\parallel} = F_g sin \theta
+\end{equation}
+\end{quote}
+
+\subsection*{}
+
+    \def\iangle{20} % Angle of the inclined plane
+    \def\down{-90}
+    \def\arcr{0.5cm} % Radius of the arc used to indicate angles
+\begin{center}
+    \begin{tikzpicture}[
+        >=latex',
+        scale=1,
+        force/.style={->,draw=blue,fill=blue},
+        axis/.style={densely dashed,gray,font=\small},
+        M/.style={rectangle,draw,fill=lightgray,minimum size=0.5cm,thin},
+        m/.style={rectangle,draw=black,fill=lightgray,minimum size=0.3cm,thin},
+        plane/.style={draw=black,fill=blue!10},
+        string/.style={draw=red, thick},
+        pulley/.style={thick},
+        ]
+        \pgfmathsetmacro{\Fnorme}{1}
+        \pgfmathsetmacro{\Fangle}{45}
+        \begin{scope}[rotate=\iangle]
+            \node[M,transform shape] (M) {};
+            \coordinate (xmin) at ($(M.south west)-({abs(1.1*\Fnorme*sin(-\Fangle))},0)$);
+            \coordinate (xmax) at ($(M.south east)+({abs(1.1*\Fnorme*sin(-\Fangle))},0)$);
+            \coordinate (ymax) at ($(M.north)+(0, {abs(1.1*\Fnorme*cos(-\Fangle))})$);
+            \coordinate (ymin) at ($(M.south)-(0, 1cm)$);
+            \draw[postaction={decorate, decoration={border, segment length=3pt, angle=-45},draw,black}] (xmin) -- (xmax);
+            \coordinate (N) at ($(M.center)+(0,{\Fnorme*cos(-\Fangle)})$);
+            \coordinate (Fperp) at ($(M.center)-(0,{\Fnorme*cos(\Fangle)})$);
+            \coordinate (fpara) at ($(M.center)+({\Fnorme*sin(-\Fangle)}, 0)$);
+            \coordinate (fs) at ($(M.center)+({\Fnorme*sin(\Fangle)}, 0)$);
+           
+            % Forces
+            \draw [->, thick, red](M.center) -- (N) node [above] {\tiny$\vec F_{N} = F_{g\perp}$};
+            \draw [->, thick, red](M.center) -- (Fperp) node [below,pos=1.8 , right,pos=1.1 ] {\tiny$F_{g\perp} = F_g cos \theta$};
+            \draw [->, thick](M.center) -- (fpara) node [left] {\tiny$F_{g\parallel} = F_g sin \theta$};
+            \draw [->, thick](M.center) -- (fs) node [right] {\tiny$\vec F_{s(max)} = F_{g\parallel} $};
+           
+           % \draw (M.center)+(90+\Fangle:\arcr) arc [start angle=90+\Fangle,end angle=90,radius=\arcr] node [above, pos=.5] {\tiny$\theta=\Fangle$};
+        \end{scope}
+        % Draw gravity force. The code is put outside the rotated
+        % scope for simplicity. No need to do any angle calculations. 
+        \draw[force,->] (M.center) -- ++(0,-1) node[below, pos=1] {\tiny$\vec F_g$};
+        \draw (M.center)+(-90:\arcr) arc [start angle=-90,end angle=\iangle-90,radius=\arcr] node [right] {\tiny$\theta$};
+    \end{tikzpicture}
+    \end{center}
+    
+    \subsection*{STATIC FRICTION}
+    \begin{quote}
+        The static coefficient of friction is the point just before an object starts to slide.\\
+        At this point the two forces acting on the parallel plane are equal to zero.
+     \begin{equation}
+         \vec{F} = ma
+     \end{equation}
+     \begin{equation}
+        F_{g\perp} - F_{s(max)} = 0
+    \end{equation}        
+        This can only occur at a specific angle in accordance with the coefficient of static friction.
+        \begin{equation}
+           F_{s(max)} = \mu_{s(max)} F_N 
+        \end{equation}
+        
+        At any angle below this the object will not move so $F_{net} $ and formula (5) no longer applies, relevant formula will therefore be formula (4) as friction $F_{f}$ will have to be equal to  $F_{g\perp}$ \\
+        $$F_{g\perp} - 0 =  F_{s}$$
+        
+        If the sum of $F_{g \perp}$ and $F_f$ does not equal zero we are no longer dealing with $\mu_{s}$ or $\mu_{s(max)}$, this is purely due to definition.\\
+        
+    \subsection*{IMPLICATIONS}
+        In conclusion,This means in equation $(5)$\\ 
+        The coefficient of friction $\mu_{s(max)}$ is a constant. \\
+        \\
+        The normal force $F_N$ will be the independent variable, as the angle of slope can be changed.   \\
+        \\
+        The frictional force $F_f$  will then then be the dependant variable, if the object is at rest it will always be equal to $F_{g \perp}$. \\
+        \\
+        The only time $F_f$ will not be equal to $F_{g \perp}$ is if the object is moving in this case the coefficient will change (usually lower than $\mu_{s(max)}$) This is called $\mu_{kinetic}$ and is not tested by the IEB.
+    
+   
+          
+
+        
+        
+    \end{quote}
+    \end{document}
