@@ -1,0 +1,526 @@
+
+%----------------------------------------------------------------------------------------
+% MEMORANDUM - GRADE 11 - PHYSICS
+%----------------------------------------------------------------------------------------
+\documentclass[a4paper, twoside]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER 
+%----------------------------------------------------------------------------------------
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{helvet}
+\usepackage{float}
+\usepackage[colorinlistoftodos]{todonotes}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage[nomessages]{fp}% http://ctan.org/pkg/fp %MATHS PACKAGE
+\usepackage{xfp}
+\usepackage{amsmath}
+\usepackage{tikz, pgfplots}
+\usetikzlibrary{arrows,	calc,	decorations,	scopes,}
+
+%----------------------------------------------------------------------------------------
+%	DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+\def\classGrade{11}
+\def\disaplineName{CHEMISTRY}
+\def\subjectName{PHYSICAL SCIENCE}
+\def\schoolName{SHANGRI-LA ACADEMY}
+\def\taskName{NOVEMBER EXAM}
+
+%----------------------------------------------------------------------------------------
+%	INPUTS
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+%	HEADER AND FOOTER
+%----------------------------------------------------------------------------------------
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE,RO]{\tiny{\textsl{\disaplineName}}}
+\fancyhead[CE,CE]{\tiny{\textsl{MEMO}}}
+\fancyhead[RE,LO]{\tiny{\textsl{\taskName}}}
+\fancyfoot[LE,RO]{\tiny{\textsl{\schoolName}}}
+\fancyfoot[CE,CO]{\tiny{\textsl{[\thepage]}}}
+\fancyfoot[RE,RO]{\tiny{\textsl{GR:\classGrade}}}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0.5pt}
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Defines a new command for the horizontal lines, change thickness here
+
+
+%----------------------------------------------------------------------------------------
+%	MULTIPLE CHOICE
+%----------------------------------------------------------------------------------------
+\newcommand{\mcOne}[2]{\gap 1.1 & $\mathbf{{#1}}$ & $\t\t$ & {#2}\\\gap\hline}
+\newcommand{\mcTwo}[2]{\gap 1.2 & $\mathbf{{#1}}$ & $\t\t$ & {#2}\\\gap\hline}
+\newcommand{\mcThree}[2]{\gap 1.3 & $\mathbf{{#1}}$ & $\t\t$ & {#2}\\\gap\hline}
+\newcommand{\mcFour}[2]{\gap 1.4 & $\mathbf{{#1}}$ & $\t\t$ & {#2}\\\gap\hline}
+\newcommand{\mcFive}[2]{\gap 1.5 & $\mathbf{{#1}}$ & $\t\t$ & {#2}\\\gap\hline}
+\newcommand{\mcSix}[2]{\gap 1.6 & $\mathbf{{#1}}$ & $\t\t$ & {#2}\\\gap\hline}
+\newcommand{\mcSeven}[2]{\gap 1.7 & $\mathbf{{#1}}$ & $\t\t$ & {#2}\\\gap\hline}
+\newcommand{\mcEight}[2]{\gap 1.8 & $\mathbf{{#1}}$ & $\t\t$ & {#2}\\\gap\hline}
+\newcommand{\mcNine}[2]{\gap 1.9 & $\mathbf{{#1}}$ & $\t\t$ & {#2}\\\gap\hline}
+\newcommand{\mcTen}[2]{\gap 1.10 & $\mathbf{{#1}}$ & $\t\t$ & {#2}\\\gap\hline}
+
+%----------------------------------------------------------------------------------------
+%	MATHS
+%----------------------------------------------------------------------------------------
+\newcommand{\sci}[2]{{#1} \times 10^{#2}}
+
+\newcommand{\varY}[1]{\def\yVar{{#1}}} 
+\newcommand{\varX}[1]{\def\xVar{{#1}}} 
+\newcommand{\varK}[1]{\def\kVar{{#1}}}
+\newcommand{\numY}[1]{\def\yNum{{#1}}} 
+\newcommand{\numX}[1]{\def\xNum{{#1}}} 
+\newcommand{\numK}[1]{\def\kNum{{#1}}}
+\newcommand{\varM}[1]{\def\mVar{{#1}}}
+\newcommand{\numM}[1]{\def\mNum{{#1}}}
+
+\newcommand{\unitCalc} [1]{\def\calcUnit{{#1}}}
+
+% DIRECT CALC
+\newcommand{\calcDirect}{\FPeval{\directResult}{round(\xNum * \kNum:2)}}
+\newcommand{\directCalc}[6]{\varY{#1} \varX{#2} \numX{#3} \varK{#4} \numK{#5} \unitCalc{#6} \calcDirect	
+	$$\yVar = \xVar \kVar $$ 	$$\yVar = (\xNum)(\kNum)$$	$$\yVar = \directResult \; \calcUnit $$ }
+
+% INVERSE CALC
+\newcommand{\calcInverse}{\FPeval{\inverseResult}{round(\kNum /  \xNum:2)}}
+\newcommand{\inverseCalc}[6]{\varY{#1} \varK{#2} \numK{#3} \varX{#4} \numX{#5} \unitCalc{#6} \calcInverse	
+	$$\yVar = \frac{\kVar}{ \xVar}$$ $$ \yVar = \frac{ \kNum }{ \xNum }$$	$$ \yVar = \inverseResult \; \calcUnit $$ }
+
+%VELOCITY
+\def\Dv{\Delta \vec{v}}
+\def\V{\vec{v}}
+\def\Vi{\vec{v}_i}
+\def\Vf{\vec{v}_f}
+\def\ViSq{\vec{v}_{i}^{2}}
+\def\VfSq{\vec{v}_{f}^{2}}
+\def\unitV{ m\d s^{-1}}
+%ACCELERATION
+\def\Da{\Delta \vec{a}}
+\def\A{\vec{a}}
+\def\g{\vec{g}}
+\def\Aa{\vec{a}_{avg}}
+\def\Ai{\vec{a}_i}
+\def\Af{\vec{a}_f}
+\def\unitA{ m\d s^{-2}}
+%DISPLACEMENT
+\def\Dx{\Delta \vec{x}}
+\def\X{\vec{x}}
+\def\Xi{\vec{x}_i }
+\def\Xf{\vec{x}_f }
+\def\Xt{\vec{x}_{total}}
+%FORCE
+\def\Df{\Delta \vec{F}}
+\def\F{\vec{F}}
+\def\Fg{\vec{F}_{g}}
+\def\Fy{\vec{F}_{y}}
+\def\Fx{\vec{F}_{x}}
+\def\Fa{\vec{F}_{a}}
+\def\Fn{\vec{F}_{N}}
+\def\Fnet{\vec{F}_{net} }
+\def\Fres{\vec{F}_{res} }
+\def\Fsmax{\vec{F}_{f_{max}}}
+\def\FgPerp{\vec{F}_{g\perp}}
+\def\FgPara{\vec{F}_{g \parallel}}
+\def\musMax{\mu_{s_{max}}}
+%MOMENTUM
+\def\Dp{\Delta \vec{p}}
+\def\P{\vec{p}}
+%TIME
+\def\Dt{\Delta t}
+\def\DtSq{\Delta t^{2}}
+%----------------------------------------------------------------------------------------
+%	Formulas
+%----------------------------------------------------------------------------------------
+\newcommand{\Equation}		[2]{{#1}  =  {#2}} 
+\newcommand{\timesRHS}[3]{{#1}=({#2})({#3})}
+\newcommand{\timesLHS}[3]{({#1})({#2})={#3}}
+\newcommand{\fractionRHS}[3]{{#1}=\frac{{#2}}{{#3}}}
+\newcommand{\fractionLHS}[3]{$$\frac{{#1}}{{#2}}={#3}$$}
+\newcommand{\plusRHS}[3]{{#1}={#2}+{#3}}
+\newcommand{\plusLHS}[3]{{#1}+{#2}={#3}}
+\newcommand{\minusRHS}[3]{{#1}={#2}-{#3}}
+\newcommand{\minusLHS}[3]{{#1}-{#2}={#3}}
+	
+%----------------------------------------------------------------------------------------
+%	FORMATTING
+%----------------------------------------------------------------------------------------
+\def\b{$\bullet$}
+\def\d{\cdot}
+\def\deg{\;^{\circ}}
+\def\gap{ & & & \\}
+\def\t{\checkmark}
+
+
+\newcommand{\questWord}[4]{	\rule{\linewidth}{0.1mm} \textbf{$\mathbf{[}$ {#1} $\mathbf{]}\quad $}	\texttt{{#2}}\hfill$\mathbf{({#3})} \quad$ \begin{quote}{#4}\end{quote}}
+
+\newcommand{\questMath}[4]{\rule{\linewidth}{0.1mm} \textbf{$\mathbf{[}$ {#1} $\mathbf{]}\quad $} \texttt{{#2}}\hfill $\mathbf{({#3})} \quad$ \\ {#4} }
+
+\newcommand{\questDiagram}[4]{\rule{\linewidth}{0.1mm} \textbf{$\mathbf{[}$ {#1} $\mathbf{]}\quad $} \texttt{{#2}}\hfill $\mathbf{({#3})} \quad$ \\ \begin{center}\begin{tikzpicture}	{#4}	\end{tikzpicture} \end{center} }
+
+
+% TOTAL OF THE QUESTION 
+\newcommand{\questTotal}[1]{\rule{\linewidth}{0.6mm}\large{$$\mathbf{\left[#1\right]}$$}\vfill\pagebreak} 
+%########################################################################################
+%	BEGIN DOCUMENT
+%########################################################################################
+\begin{document}
+\begin{titlepage}
+	\center % Center everything on the page
+	\textsc{\LARGE \schoolName}\\[1.5cm] % Name of your university/college
+	\hfill\\ \hfill\\\hfill\\\hfill\\\hfill\\
+	\begin{center}
+	%	\includegraphics[scale=0.2]{Shangri-La_Logo.jpg}  
+	\end{center}
+	\hfill\\ \hfill\\\hfill\\ \hfill\\\hfill\\
+	\HRule \\[0.4cm]
+	\textsc{\Large \subjectName}\\[0.5cm] % Major heading such as course name
+	\textsc{\large \disaplineName}\\[0.5cm]
+	\textsc{\large Grade \classGrade}\\[0.5cm] % Minor heading such as course title
+	%	TITLE SECTION
+	\HRule \\[0.5cm]
+	\bigskip
+	\textsc{\large \taskName}\\[0.5cm] % Minor heading such as course title
+	{ \huge \bfseries MEMORANDUM}\\[0.5cm] % Title of your document
+	\HRule \\[1.5cm]
+	%	AUTHOR SECTION
+	\begin{minipage}{0.4\textwidth}
+		\begin{center} \large
+			\emph{Examiner:}\\
+			K. \textsc{Hilder}\\ % Your name
+		\end{center}
+	\end{minipage}\\[2cm]
+	%	DATE SECTION
+	{\large \today}\\[2cm] % Date, change the \today to a set date if you want to be precise
+	\vfill % Fill the rest of the page with whitespace
+\end{titlepage}	
+
+%	QUESTION ONE	
+\section*{QUESTION 1}
+\subsection*{Multiple Choice}
+\rule{\linewidth}{0.1mm}
+\begin{center}
+	\begin{tabular}{|c|c|c|l|}
+		\hline 
+		Q   & Answer & Marks & Reason \\ 
+		\hline \hline 
+		\mcOne	{A}{The resultant of A is $ 0N $}
+		\mcTwo	{C}{$ \frac{F}{4} \propto \frac{1}{R^2} \therefore R^2 \propto \frac{4}{F} \;so\; 2R\;and\;R\;above\;Earth $  }
+		\mcThree{C}{Increasing Speed $ \because \; \varepsilon \propto \frac{1}{t} $}
+		\mcFour	{B}{ $ F \;and \; a $ are vectors | $ m $ is a scalar}
+		\mcFive	{D}{$ F \propto \frac{1}{(\frac{r}{2})^2} \therefore F \propto \frac{1}{(\frac{r^2}{4})}$}
+		\mcSix	{B}{$ V_1 $ is $ \parallel $ to $ V_2 + V_3 $)}
+		\mcSeven{D}{$ \Fn = \FgPerp = \Fg cos \theta $}
+		\mcEight{B}{$ \Fn = F_g + F_y $ as force is down so y is added to weight}
+		\mcNine	{B}{$ E = \frac{F}{q} $ so $ E \propto F $}
+		\mcTen	{C}{$F_{driver\;on\;seatbelt} \leftarrow \rightarrow F_{seatbelt\;on\;driver}  $}
+	\end{tabular} 
+\end{center}
+
+\questTotal{20}
+%----------------------------------------------------------------------------------------
+%	QUESTION TWO	
+%---------------------------------------------------------------------------------------
+\section*{QUESTION 2}
+\subsection*{HANGING BLOCK}
+\questWord{2.1}{Resultant Vector}{2}{The vector sum of two or more vectors}
+\questMath{2.2}{Resultant F on B}{1}{$$	0N	$$}
+\questDiagram{2.3}{Free body F's on B}{3}
+{
+	\draw[->, thick, black] (0,0) -- (0,-1) node [below]{$F_g$};
+	\draw[->, thick, black] (0,0) -- (0.5,0.5) node [above]{$F_A$};
+	\draw[->, thick, black] (0,0) -- (-1,0.5) node [above]{$F_C$};
+	\draw[fill=black] (0,0) circle [radius=0.1];	%dot
+}
+\questMath{2.3}{Horizontal force in R}{2}{
+$$ 200N $$
+}
+\questMath{2.4}{Horizontal force in R}{4}
+{
+\begin{align*}
+\theta &= 90 - 35 =  55 \deg\\
+\\
+\Fy &= \Fg cos \theta \\
+\Fy &= (ma) cos \theta \\
+\Fy &= (56)(9.8) cos(55) \\
+\Fy &= (548.8)cos(35) \\
+\Fy &= 263.1568N\\
+\end{align*}
+}
+\questMath{2.5}{Angle of C}{2}{
+\begin{align*}
+tan \theta &= \frac{F_y}{F_x}\\
+tan \theta &= \frac{263.17}{200}\\
+tan \theta &= 52.77 \deg
+\end{align*}
+}
+\questTotal{15}
+%----------------------------------------------------------------------------------------
+%	QUESTION THREE	
+%---------------------------------------------------------------------------------------
+\section*{QUESTION 3}
+\subsection*{TROLLEY}
+\questWord{3.1}{Hypothesis}{2}{
+	\b relevant to situation and \\
+	Dependant and independent mentioned as well as their relationship.
+}
+\questWord{3.2}{Independent}{1}{The net Force}
+\questWord{3.3}{Dependent}{1}{Acceleration}
+\questWord{3.4}{experimental error}{2}{Issues with the ticker timer, friction in vehicle}
+\questMath{3.5}{GRAPH}{4}{
+\begin{center}
+	\begin{tikzpicture}
+	
+
+	\coordinate (pointOne) at (0.3,0.36);
+	\coordinate (pointTwo) at (0.6,0.73);
+	\coordinate (pointThree) at (0.9,1.09);
+	\coordinate (pointFour) at (1.2,1.45);
+	 	
+	
+	\draw[step=.5cm, gray, dotted, help lines] (0,0) grid (2,2) node [black,above] {\small{$Graph \; Showing \; Force \; vs \; Acceleation$}}; %
+	\draw[->, thick, black] (0,0) -- (0,2) node [midway,left]{$a(m.s^{-2})$};% Y-axis
+	\draw[->, thick, black] (0,0) -- (2,0) node [midway, below]{$F(N)$};% X-axis
+
+	\draw[thick, black] (0,0) -- (pointOne);
+	\draw[thick, black](pointOne) -- (pointTwo);
+	\draw[thick, black] (pointTwo) -- (pointThree);
+	\draw[thick, black] (pointThree) -- (pointFour);
+		
+	\draw[fill=blue] (pointOne) circle [radius=0.05];	%dot
+	\draw[fill=blue] (pointTwo) circle [radius=0.05];	%dot
+	\draw[fill=blue] (pointThree) circle [radius=0.05];	%dot
+	\draw[fill=blue] (pointFour) circle [radius=0.05];	%dot
+	
+
+	
+	\end{tikzpicture}
+\end{center}	
+	}
+\questMath{3.6}{Gradient}{3}{
+Accept any coordinates from graph		
+\begin{align*}
+m &= \frac{\Delta Y}{\Delta X}\\
+m &= \frac{1.09 - 0}{0.9-0}\\
+m &= 1.2 \\
+\end{align*}}
+\questMath{3.7}{Determine Mass}{2}{
+\begin{align*}
+F &= ma \\
+1 &= 1,2m \\
+0.83 &= m \\
+\therefore m &= 0.83kg
+\end{align*}
+}
+\questTotal{15}
+
+%----------------------------------------------------------------------------------------
+%	QUESTION FOUR	
+%---------------------------------------------------------------------------------------
+\section*{QUESTION 4}
+\subsection*{HELICOPTER}
+\questWord{4.1}{Newton One}{2}
+{A body will remain in its state of rest or motion at constant/uniform velocity unless a non-zero resultant/net force acts on it.}
+\questDiagram{4.2}{Force Diagram}{3}
+{
+	\draw[->, thick, black] (0,0) -- (0,1.5) node [above]{$F_T$};
+	\draw[->, thick, black] (0,0) -- (0,-0.5) node [left]{$F_{blades}$};
+	\draw[->, thick, black] (0,0) -- (0,-1) node [below]{$F_g$};
+	\draw[fill=black] (0,0) circle [radius=0.1];	%dot
+}
+\questWord{4.3}{Why is it Stationary}{2}
+{There is an extra downward force, created by the blades of the helicopter}
+\questMath{4.4}{Mass on container}{2}
+{ \begin{align*}
+	F &= ma \\
+	1960 &= 9.8m \\
+	200 &= m\\
+	\therefore m &= 200kg
+	\end{align*}
+}
+\questMath{4.5}{Tension in Cable}{4}
+{
+\begin{align*}
+\Fnet& = ma \\
+F_T - F_g - F_b &= ma \\
+F_T - 1960 - 140 &= (200)(0,13) \\
+F_T - 2100 &= 26\\
+F_T &= 2126N
+\end{align*}
+}
+\questMath{4.6}{Constant Velocity}{2}{$$ 2100 $$}
+\questTotal{15}
+%----------------------------------------------------------------------------------------
+%	QUESTION FIVE	
+%---------------------------------------------------------------------------------------
+\section*{QUESTION 5}
+\subsection*{SLOPE}
+\questWord{5.1}{Newton Two}{2}
+{When a net force acts on an object, it will accelerate in the direction of the net force. The acceleration is directly proportional to the net force and inversely proportional to the mass of the object.}
+\questDiagram{5.2}{Free Body}{4}
+{
+	\draw[->, thick, black] (0,0) -- (-1,0.9) node [above]{$T$};
+	\draw[->, thick, black] (0,0) -- (-0.8,0.8) node [below]{$F_f$};
+	\draw[->, thick, black] (0,0) -- (0.8,0.8) node [right]{$F_g$};
+	\draw[->, thick, black] (0,0) -- (0,-1) node [below]{$F_g$};
+	\draw[thick](-0.1,0)-- (0.1,0);
+}
+\questMath{5.3}{Frictional Force}{4}
+{
+\begin{align*}
+F_k &= \mu_k F_N \\
+F_k &= (\mu_k )(m) (g)cos\theta \\
+F_k &= (0,2) (4)(0,9)cos(40) \\
+F_k &= 6,01N 
+\end{align*}	
+}
+\questMath{5.4}{Acceleration}{6}
+{
+	\begin{align*}
+	&F_A = ma 										&F_B = ma \\
+	&F_T - F_{fA} =ma							&\FgPara -  F_T - F_{fB} =ma	\\
+		&F_T -(0.2)(8)(9,8) = 8a			&(4)(9,8)sin(40) -  F_T - 6.01 =4a	
+	\end{align*}
+
+}
+\questWord{5.5}{Switching the Blocks}{4}{•}
+\questTotal{20}
+%----------------------------------------------------------------------------------------
+%	QUESTION SIX	
+%---------------------------------------------------------------------------------------
+\section*{QUESTION 6}
+\subsection*{GRAVITY}
+\questWord{6.1}{Universal Gravity}{2}
+{Every body in the universe attracts every other body with a force that is directly proportional to the product of their masses and inversely proportional to the square of the distance between their centres.}
+\questWord{6.2}{Weightlessness}{2}
+{Weightlessness is the sensation experienced when all contact forces are removed.}
+\questMath{6.3}{Force between Earth and Satellite}{4}
+{ 
+\begin{align*}
+F &= G \frac{m_1 m_2}{r^2} \\
+F &= (\sci{6,6}{-11} \frac{(\sci{5.98}{24}) (3800) }{(\sci{6.38}{6}+\sci{25}{6})^2} \\
+\\
+\end{align*}
+}
+\questWord{6.4}{Sat A and Sat B}{4}
+{Greater Than\\
+The mass is greater so for the same force the distance must be greater.}
+\questTotal{12}
+%----------------------------------------------------------------------------------------
+%	QUESTION SEVEN	
+%---------------------------------------------------------------------------------------
+\section*{QUESTION 7}
+\subsection*{ELECTROSTATIC}
+\questWord{7.1}{Electric Field}{2}{
+Electric field at a point is the electrostatic force experienced per unit positive charge placed at that point.}
+\questWord{7.2}{Charge?}{1}{Negative}
+\questDiagram{7.3}{Resultant}{3}{
+}
+\questMath{7.4}{Magnitude of Charge}{5}{
+\begin{align*}
+E_{net} &= \frac{kQ}{r^2} + \frac{kQ}{r^2}\\ \\
+\sci{5.44}{6} &=  \frac{(\sci{9}{9})Q}{(\sci{5}{-3})^2} + \frac{(\sci{9}{9})Q}{(\sci{3}{-3})^2} \\ \\
+Q &= \sci{4}{-9}C
+\end{align*}
+}
+\questWord{7.5}{Charge Y is changed}{2}{Net electric field DECREASES\\
+The positive charge on X will have a field in the opposite direction. The
+electric field (strength) being a vector will decrease because of opposite
+directions.
+}
+
+\questTotal{13}
+%----------------------------------------------------------------------------------------
+%	QUESTION EIGHT	
+%---------------------------------------------------------------------------------------
+\section*{QUESTION 8}
+\subsection*{ELECTRODYNAMICS}
+\questWord{8.1.1}{Faraday}{2}{The magnitude of the induced emf across the ends of a conductor is directly proportional to the rate of change in the magnetic flux linkage with the conductor}
+\questMath{8.1.2}{Magnitude of Charge}{5}{
+\begin{align*}
+emf &= \frac{-N \Delta \Phi}{t} \\
+3 &= (-200)(\Delta \Phi)(1,8)\\
+(\Delta \Phi) &= -0,0083Wb
+\end{align*}
+}
+\questMath{8.1.3}{Calculate $ \theta $}{4}{•}
+\questWord{8.2.1}{Increase Current}{2}{Stronger Magnet and more coils}
+\questWord{8.2.2}{Moment of Magnet}{2}{It needs to be moved left}
+\questTotal{15}
+%----------------------------------------------------------------------------------------
+%	QUESTION EIGHT	
+%---------------------------------------------------------------------------------------
+\section*{QUESTION 9}
+\subsection*{CIRCUIT}
+\questWord{9.1}{Power}{2}{Power is the rate at which work is done or energy is transferred.}
+\questMath{9.2}{Parallel Resistance}{2}{
+\begin{align*}
+\frac{1}{R_t} &=\frac{1}{R_1} + \frac{1}{R_2} \\
+\frac{1}{R_t} &=\frac{1}{6} + \frac{1}{15} \\
+R_p &= 4,29 \Omega
+\end{align*}}
+\questMath{9.3}{Voltage over Parallel}{3}{
+\begin{align*}
+P &= \frac{V^2}{R} \\
+50 &= \frac{V^2}{4.29} \\
+V &= 14,65V  
+\end{align*}
+}
+\questMath{9.4}{Current through R}{3}{
+\begin{align*}
+R &= \frac{V}{I} \\
+4,29 &= \frac{14.65}{I} \\
+I &= 3.41A 
+\end{align*}
+}
+\questWord{9.5}{Voltage when switch open}{1}{
+Decrease.
+}
+\questWord{9.6}{Explain 9.5}{2}{
+The total current increases this lead to a decease in current}
+\questTotal{13}
+%----------------------------------------------------------------------------------------
+%	QUESTION EIGHT	
+%---------------------------------------------------------------------------------------
+\section*{QUESTION 10}
+\subsection*{ELECTRIC BLANKET}
+\questMath{10.1.1}{Resistance}{2}{
+\begin{align*}
+R_t &= r + R_1 + R_2 \\
+R_t &= 1 + 3,7 + 3,4 \\
+R_t &= 8,1 \Omega
+\end{align*}
+}
+\questMath{10.1.2}{Current}{3}{
+\begin{align*}
+I &= \frac{V}{R} \\
+I &= \frac{20}{8.1} \\
+I &= 2,3 \Omega \\
+\end{align*}
+}
+\questWord{10.2}{Position B}{3}{Increase}
+\questMath{10.3}{Power of C}{4}{
+$$20W$$
+Any method is acceptable\\}
+\questTotal{12}
+
+
+
+
+
+
+
+
+
+
+
+%########################################################################################
+%	END DOCUMENT
+%########################################################################################
+\end{document}
